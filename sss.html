@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoría Sánchez - Servicios Consulares Profesionales</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #4A6FA5;
+            --secondary-blue: #2E5CCD;
+            --accent-red: #D32F2F;
+            --dark-gray: #333333;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #4A6FA5 0%, #2E5CCD 100%);
+            --shadow-soft: 0 5px 25px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            font-size: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-contacto {
+            background: var(--accent-red) !important;
+            color: white !important;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        .btn-contacto:hover {
+            background: #B71C1C !important;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2044&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 120px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(74, 111, 165, 0.8), rgba(46, 92, 205, 0.6));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(74, 111, 165, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(74, 111, 165, 0.6);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            background: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+
+        .why-us-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-us-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .why-us-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 120px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .about-subtitle {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Mission Cards */
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--secondary-blue);
+            text-align: center;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .mission-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        .mission-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-gray);
+            padding: 120px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-image::before {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .service-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .service-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .service-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+            color: #666;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-blue);
+            font-weight: bold;
+        }
+
+        .btn-service {
+            background: var(--accent-red);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-service:hover {
+            background: #B71C1C;
+            transform: translateY(-2px);
+        }
+
+        .btn-service.btn-blue {
+            background: var(--secondary-blue);
+        }
+
+        .btn-service.btn-blue:hover {
+            background: #1E3A8A;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: white;
+            padding: 120px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #f0f0f0;
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+            color: var(--primary-blue);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-answer.active {
+            padding: 25px;
+            max-height: 300px;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Maps Section */
+        .maps {
+            background: var(--light-gray);
+            padding: 120px 0;
+        }
+
+        .maps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .map-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+        }
+
+        .map-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .map-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .map-content {
+            padding: 30px;
+        }
+
+        .map-embed {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background: #f0f8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .map-address {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .map-address strong {
+            color: var(--dark-gray);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark-gray);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--dark-gray);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+        }
+
+        .phone-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .country-code {
+            flex: 0 0 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 111, 165, 0.4);
+        }
+
+        .contact-cards {
+            display: grid;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-highlight {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Error styling */
+        .error {
+            border-color: #dc3545 !important;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Success message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            z-index: 10000;
+            font-weight: 500;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block !important;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .header-main {
+                flex-direction: column;
+                gap: 20px;
+                position: relative;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--gradient-primary);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                gap: 10px;
+            }
+
+            .nav-menu.active {
+                display: flex !important;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .hero {
+                margin-top: 140px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid,
+            .mission-cards,
+            .maps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .phone-input {
+                flex-direction: column;
+            }
+
+            .country-code {
+                flex: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-form,
+            .why-us-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://asesoriaparavisalasersanchez.com/wp-content/uploads/2024/10/cropped-ASESORIA-VISA-LASER_SIN-FONDO-185x185.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+52 868 163 5140</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>luz_elenafdz@gmail.com</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/p/Asesoria-Para-Visa-Laser-Sanchez-Matamoros-Tamps-100057230598128/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/asesoriasanchez__/profilecard/?igsh=MWh2MzRkNWZmb3dmdg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-globe-americas" style="color: white; font-size: 24px;"></i>
+                    </div>
+                    <div class="logo-text">ASESORÍA SÁNCHEZ</div>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#inicio">INICIO</a></li>
+                        <li><a href="#quienes-somos">¿QUIÉNES SOMOS?</a></li>
+                        <li><a href="#servicios">SERVICIOS</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#oficinas">OFICINAS</a></li>
+                        <li><a href="#contacto" class="btn-contacto">CONTACTO</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Obtén tu visa, simple y rápido</h1>
+            <p>Haz realidad tu viaje, obtén tu visa de manera rápida y sencilla con nuestros expertos consultores</p>
+            <a href="#contacto" class="btn-primary">CONTÁCTANOS</a>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <div class="why-us-content fade-in">
+                <h2>¿Por qué nosotros?</h2>
+                <p>En Asesoría Sánchez, nos enorgullece ofrecer un servicio de asesoría de visas confiable y eficiente. Contamos con un equipo de expertos en visas que están altamente capacitados para ayudarte a obtener tu visa de forma rápida y sencilla. Además, estamos comprometidos con brindarte una atención al cliente excepcional y costos accesibles.</p>
+                <a href="#contacto" class="btn-primary">CONTÁCTANOS</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f8f9fa; padding: 80px 0;">
+        <div class="container">
+            <div class="mission-cards">
+                <div class="mission-card fade-in">
+                    <div class="mission-icon">🎯</div>
+                    <h3>Nuestra Misión</h3>
+                    <p>Nuestro objetivo es hacer que su proceso de obtención de visa o pasaporte sea lo más sencillo y exitoso posible.</p>
+                </div>
+                <div class="mission-card fade-in">
+                    <div class="mission-icon">👥</div>
+                    <h3>Asesoría para Todos</h3>
+                    <p>Todos los trámites se planifican para satisfacer las necesidades de cada cliente. Este enfoque ayudará a lograr sus objetivos de manera efectiva.</p>
+                </div>
+                <div class="mission-card fade-in">
+                    <div class="mission-icon">⭐</div>
+                    <h3>Atención al Cliente</h3>
+                    <p>Visítenos para una consulta gratuita y conozca a nuestro equipo de expertos en visas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quienes-somos" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Equipo profesional">
+                </div>
+                <div class="about-text fade-in">
+                    <p class="about-subtitle">Nuestra Misión y Compromiso con Nuestros Clientes</p>
+                    <h2>¿Quiénes somos?</h2>
+                    <p>En Asesoría Sánchez, nos enorgullece ofrecer servicios de calidad y apoyo a nuestros clientes en cada paso del proceso de solicitud de visa. Nuestra misión es hacer que el proceso de obtención de visas sea lo más simple y sin complicaciones posible para nuestros clientes.</p>
+                    <p>Nos dedicamos a trabajar arduamente para asegurarnos de que nuestros clientes obtengan la visa que necesitan para cumplir sus objetivos personales y profesionales. Estamos aquí para responder a todas tus preguntas, brindarte asesoramiento profesional y apoyo durante el proceso de solicitud.</p>
+                    <a href="#contacto" class="btn-primary">CONTÁCTANOS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://static-uat.cambiocolombia.com/s3fs-public/2022-11/visas-americana.jpg');">
+                    </div>
+                    <div class="service-content">
+                        <h3>Trámites de Visa</h3>
+                        <ul class="service-list">
+                            <li>Visa de Turismo (B-2)</li>
+                            <li>Visa de Negocios (B-1)</li>
+                            <li>Visa de Trabajo (H-1B, L-1, O-1)</li>
+                            <li>Visa de Estudiante (F-1, M-1)</li>
+                            <li>Visa de Prometido(a) (K-1)</li>
+                            <li>Visa de Intercambio (J-1)</li>
+                            <li>Visa NAFTA (TN)</li>
+                            <li>Visa de Emergencia</li>
+                        </ul>
+                        <a href="#contacto" class="btn-service">ME INTERESA</a>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.snqTSOcSk-gSKJAHI5BFUgHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3');">
+                    </div>
+                    <div class="service-content">
+                        <h3>Trámites de Pasaporte</h3>
+                        <ul class="service-list">
+                            <li>Pasaporte Mexicano - Primera vez</li>
+                            <li>Pasaporte Mexicano - Renovación</li>
+                            <li>Pasaporte Americano - Primera vez</li>
+                            <li>Pasaporte Americano - Renovación</li>
+                            <li>Pasaporte para menores de edad</li>
+                            <li>Corrección de datos en pasaporte</li>
+                        </ul>
+                        <a href="#contacto" class="btn-service btn-blue">ME INTERESA</a>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-image" style="background-image: url('https://tcadm.com/wp-content/uploads/2020/10/Slider_D-Legal-3.jpg');">
+                    </div>
+                    <div class="service-content">
+                        <h3>Otros Trámites</h3>
+                        <ul class="service-list">
+                            <li>Permisos I-94</li>
+                            <li>FOIA (Freedom of Information Act)</li>
+                            <li>Regularización de Vehículos</li>
+                            <li>Nacionalización de Autos</li>
+                            <li>Perdones Migratorios</li>
+                            <li>Traducción de documentos</li>
+                            <li>Trámite de pedir ciudadanía</li>
+                            <li>Adelanto de citas de visa</li>
+                        </ul>
+                        <a href="#contacto" class="btn-service">ME INTERESA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Cuánto tiempo tarda el proceso de visa?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El tiempo varía según el tipo de visa. Las visas de turista pueden tardar de 3-5 días hábiles, mientras que las visas de trabajo pueden tomar varias semanas o meses.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Qué documentos necesito para renovar mi pasaporte?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para renovar su pasaporte mexicano necesita: pasaporte anterior, CURP, comprobante de pago, y una fotografía reciente. Para pasaporte americano: formulario DS-82, pasaporte anterior, fotografía y comprobante de pago.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Qué es el permiso I-94?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El I-94 es un registro de entrada/salida que documenta la llegada legal de visitantes a Estados Unidos. Es importante para demostrar estatus legal y para futuros trámites migratorios.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Puedo regularizar un vehículo extranjero?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos servicios de regularización de vehículos extranjeros y nacionalización de autos. El proceso incluye verificación, pago de impuestos y obtención de documentos mexicanos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Qué es FOIA y para qué sirve?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>FOIA (Freedom of Information Act) permite solicitar registros del gobierno estadounidense sobre su historial migratorio. Es útil para obtener copias de documentos perdidos o verificar información en su expediente.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Ofrecen garantía en sus servicios?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Garantizamos que todos los documentos serán preparados correctamente y enviados a tiempo. Sin embargo, la aprobación final depende de las autoridades correspondientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oficinas" class="maps">
+        <div class="container">
+            <h2 class="section-title">Nuestras Oficinas</h2>
+            <div class="maps-grid">
+                <div class="map-card fade-in">
+                    <div class="map-header">Matriz Jardín</div>
+                    <div class="map-content">
+                        <div class="map-embed">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.123456789!2d-97.5056789!3d25.8797123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f7b123456789a%3A0x123456789abcdef0!2sCalle%20Constituci%C3%B3n%201114%2C%20Jard%C3%ADn%2C%2087330%20H.%20Matamoros%2C%20Tamps.!5e0!3m2!1sen!2smx!4v1234567890123!5m2!1sen!2smx"
+                                width="100%"
+                                height="250"
+                                style="border:0; border-radius: 10px;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="map-address">
+                            <p><strong>Dirección:</strong><br>
+                            Frente al Olímpico<br>
+                            Calle Constitución No. 1114 Altos<br>
+                            Jardín, 87330 México, Tamps.</p>
+                            <p><strong>Teléfono:</strong> +52 868 163 5140</p>
+                            <p><strong>Horario:</strong> Lunes a Viernes 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card fade-in">
+                    <div class="map-header">Oficina Palmares</div>
+                    <div class="map-content">
+                        <div class="map-embed">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.987654321!2d-97.5123456!3d25.8654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f7b987654321b%3A0x987654321abcdef0!2sAv.%20Paseo%20de%20Los%20Palmares%2075%2C%20Palmares%2C%2087330%20H.%20Matamoros%2C%20Tamps.!5e0!3m2!1sen!2smx!4v1234567890987!5m2!1sen!2smx"
+                                width="100%"
+                                height="250"
+                                style="border:0; border-radius: 10px;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="map-address">
+                            <p><strong>Dirección:</strong><br>
+                            Ave. Paseo de Los Palmares #75<br>
+                            Esquina con Palma Antigua<br>
+                            Fracc. Palmares</p>
+                            <p><strong>Teléfono:</strong> +52 868 163 5140</p>
+                            <p><strong>Horario:</strong> Lunes a Viernes 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contáctanos</h2>
+                <p class="contact-subtitle">¿Necesitas ayuda? ¡Contáctanos y te guiaremos en el proceso!</p>
+                
+                <div class="contact-grid">
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <div class="phone-input">
+                                <select class="country-code" name="country-code">
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                </select>
+                                <input type="tel" id="telefono" name="telefono" placeholder="868 163 5140" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servicio">Seleccione el servicio que desea</label>
+                            <select id="servicio" name="servicio">
+                                <option value="">Seleccionar servicio...</option>
+                                <option value="visa-turista">Trámite de visa de turista, trabajo y estudio a EU</option>
+                                <option value="permiso-canada">Permiso electrónico y permiso de estudio para Canadá</option>
+                                <option value="pasaporte-mexicano">Pasaporte Mexicano</option>
+                                <option value="pasaporte-americano">Pasaporte Americano</option>
+                                <option value="global-entry">Global Entry</option>
+                                <option value="regularizacion-vehiculos">Regularización de Vehículos</option>
+                                <option value="foia">FOIA</option>
+                                <option value="otro">Otro servicio</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe tu consulta..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">ENVIAR</button>
+                        
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+                            Tu información permanecerá confidencial.
+                        </p>
+                    </form>
+                    
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Teléfono</h3>
+                            <p>+52 868 163 5140</p>
+                            <p>Disponible de Lunes a Viernes<br>9:00 AM - 6:00 PM</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <h3>Correo Electrónico</h3>
+                            <p>info@asesoriasanchez.com.mx</p>
+                            <p>Respuesta garantizada<br>en 24 horas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 <span class="footer-highlight">Asesoría Sánchez</span> - Todos los derechos reservados</p>
+            <p>Servicios consulares profesionales • Experiencia comprobada • Resultados garantizados</p>
+            <p>Matamoros, Tamaulipas • <strong>+52 868 163 5140</strong></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5218681635140" target="_blank" class="floating-whatsapp" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileBtn = document.querySelector('.mobile-menu-btn i');
+            
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                mobileBtn.className = 'fas fa-times';
+            } else {
+                mobileBtn.className = 'fas fa-bars';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const navMenu = document.querySelector('.nav-menu');
+                    const mobileBtn = document.querySelector('.mobile-menu-btn i');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileBtn.className = 'fas fa-bars';
+                    }
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // FAQ Toggle functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        // Initialize fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                fadeInObserver.observe(element);
+            });
+        });
+
+        // Form validation
+        function validateField(field) {
+            const value = field.value.trim();
+            let isValid = true;
+            
+            // Remove existing error styling
+            field.classList.remove('error');
+            const existingError = field.parentNode.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            if (field.hasAttribute('required') && !value) {
+                showFieldError(field, 'Este campo es requerido');
+                isValid = false;
+            } else if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    showFieldError(field, 'Ingrese un email válido');
+                    isValid = false;
+                }
+            } else if (field.type === 'tel' && value) {
+                const phoneRegex = /^[0-9\s\-\(\)]{8,}$/;
+                if (!phoneRegex.test(value)) {
+                    showFieldError(field, 'Ingrese un teléfono válido');
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+
+        function showFieldError(field, message) {
+            field.classList.add('error');
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            field.parentNode.appendChild(errorDiv);
+        }
+
+        // Add event listeners for form validation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input, select, textarea').forEach(input => {
+                input.addEventListener('blur', () => validateField(input));
+                input.addEventListener('input', () => {
+                    input.classList.remove('error');
+                    const errorMessage = input.parentNode.querySelector('.error-message');
+                    if (errorMessage) {
+                        errorMessage.remove();
+                    }
+                });
+            });
+        });
+
+        // Form submission to WhatsApp
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Validate all fields
+            let isFormValid = true;
+            const formData = new FormData(event.target);
+            
+            event.target.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            if (!isFormValid) {
+                showErrorMessage('Por favor, complete todos los campos requeridos correctamente.');
+                return;
+            }
+            
+            const nombre = formData.get('nombre');
+            const email = formData.get('email');
+            const countryCode = formData.get('country-code');
+            const telefono = formData.get('telefono');
+            const servicio = formData.get('servicio');
+            const mensaje = formData.get('mensaje');
+            
+            // Get service display name
+            let servicioText = '';
+            if (servicio) {
+                const servicioSelect = document.getElementById('servicio');
+                servicioText = servicioSelect.options[servicioSelect.selectedIndex].text;
+            }
+            
+            // Create WhatsApp message
+            let whatsappMessage = `¡Hola! Solicito información sobre sus servicios consulares.
+
+👤 *DATOS DEL CLIENTE:*
+• Nombre: ${nombre}
+• Email: ${email}
+• Teléfono: ${countryCode} ${telefono}`;
+
+            if (servicio) {
+                whatsappMessage += `
+• Servicio de interés: ${servicioText}`;
+            }
+
+            if (mensaje) {
+                whatsappMessage += `
+💬 *MENSAJE:*
+${mensaje}`;
+            }
+
+            whatsappMessage += `
+
+Espero su respuesta para continuar con el proceso. ¡Gracias!`;
+
+            // WhatsApp phone number (México format)
+            const whatsappNumber = '5218681635140';
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            showSuccessMessage();
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Success message function
+        function showSuccessMessage() {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `
+                <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                ¡Mensaje enviado exitosamente!
+            `;
+            
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => {
+                    successDiv.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Error message function
+        function showErrorMessage(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #dc3545;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+                z-index: 10000;
+                font-weight: 500;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            errorDiv.innerHTML = `
+                <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(errorDiv);
+            
+            setTimeout(() => {
+                errorDiv.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
